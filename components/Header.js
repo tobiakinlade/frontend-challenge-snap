@@ -225,12 +225,37 @@ function Header() {
             </div>
 
             <div className='flex text-gray-500  mt-4 flex-col'>
-              <div className='cursor-pointer p-4 items-center justify-center space-y-2'>
+              <div className='cursor-pointer p-4 items-center w-auto justify-center space-y-2'>
                 <p className='mt-1 ml-3 hover hover:text-black'>Login</p>
-                <div className='border  border-gray-500 p-2 justify-center  flex items-center rounded-lg'>
-                  <p className='hover hover:text-black'>Register</p>
+                <div className='border  border-gray-500 p-2  justify-center  items-center rounded-lg'>
+                  <p className='hover  hover:text-black'>Register</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Main body */}
+      {/* Set two different logic for mobile and desktop */}
+      {!isMenuOpen && (
+        <div className='flex flex-col -mt-4'>
+          <div className=''>
+            <div className=''>
+              <Image
+                objectFit='contain'
+                src='/images/image-hero-mobile.png'
+                layout='fill'
+                className='absolute'
+              />
+            </div>
+            <div>
+              <h1>Make remote work</h1>
+              <p>
+                Get your team in sync, no matter your location, Streamline
+                processes, create team rituals, and watch productivity soar.
+              </p>
+              <button className='text-white bg-black p-2'>Learn more</button>
             </div>
           </div>
         </div>
