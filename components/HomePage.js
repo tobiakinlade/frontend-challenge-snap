@@ -11,7 +11,7 @@ import {
   XIcon,
 } from '@heroicons/react/outline';
 
-function Header() {
+function HomePage() {
   const [isOpen, setIsIOpen] = useState(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -120,7 +120,7 @@ function Header() {
         )}
 
         {isCompanyOpen && (
-          <div className='flex ml-24  p-2 h-70  bg-white  border rounded-lg  space-x-1 space-y-2'>
+          <div className='flex ml-24   p-2 h-70  bg-white  border rounded-lg  space-x-1 space-y-2'>
             <ul>
               <li className='flex'>
                 <p className='text-xs mt-2 text-gray-500'>History</p>
@@ -139,8 +139,8 @@ function Header() {
 
       {/* Menu icon logic */}
       {isMenuOpen && (
-        <div className='flex justify-end p-8 sm:hidden mr-12  '>
-          <div className='flex-col justify-between'>
+        <div className='flex justify-end p-8 sm:hidden mr-12 '>
+          <div className='flex-col space-y-4 justify-between'>
             <div className='flex-col text-gray-500 hover hover:text-black'>
               <div className='flex' onClick={() => setIsIOpen(!isOpen)}>
                 {!isOpen ? (
@@ -238,24 +238,141 @@ function Header() {
 
       {/* Main body */}
       {/* Set two different logic for mobile and desktop */}
+      {/* Mobile View */}
       {!isMenuOpen && (
-        <div className='flex flex-col -mt-4'>
-          <div className=''>
-            <div className=''>
-              <Image
-                objectFit='contain'
-                src='/images/image-hero-mobile.png'
-                layout='fill'
-                className='absolute'
-              />
-            </div>
-            <div>
-              <h1>Make remote work</h1>
-              <p>
+        <div className='flex sm:hidden'>
+          <div className=' flex justify-center flex-col '>
+            <Image
+              objectFit='contain'
+              src='/images/image-hero-mobile.png'
+              width={500}
+              height={500}
+            />
+
+            <div className='flex flex-col justify-center items-center space-y-3'>
+              <h1 className='text-3xl font-bold'>Make remote work</h1>
+              <p className=''>
                 Get your team in sync, no matter your location, Streamline
                 processes, create team rituals, and watch productivity soar.
               </p>
-              <button className='text-white bg-black p-2'>Learn more</button>
+              <button className='rounded-xl text-white bg-black p-3'>
+                Learn more
+              </button>
+            </div>
+            <div className='flex mt-6 justify-evenly'>
+              <Image
+                src='/images/client-databiz.svg'
+                objectFit='contain'
+                height={40}
+                width={80}
+              />
+              <Image
+                src='/images/client-audiophile.svg'
+                objectFit='contain'
+                height={40}
+                width={80}
+              />
+              <Image
+                src='/images/client-meet.svg'
+                objectFit='contain'
+                height={40}
+                width={80}
+              />
+              <Image
+                src='/images/client-maker.svg'
+                objectFit='contain'
+                height={40}
+                width={80}
+              />
+            </div>
+
+            <div className='flex mt-12 justify-center bottom-0 text-sm text-gray-500 '>
+              <div>
+                Challenge by{' '}
+                <a
+                  href='https://www.frontendmentor.io?ref=challenge'
+                  target='_blank'
+                  className='cursor-pointer hover hover:text-black underline'
+                >
+                  Frontend Mentor
+                </a>
+                . Coded by <a href='#'>Tobi Akinlade</a>.
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Desktop View */}
+      {!isMenuOpen && (
+        <div
+          className={`hidden sm:inline-flex ${
+            (isOpen || isCompanyOpen) && '-mt-4'
+          }`}
+        >
+          <div className='flex flex-col mb-12'>
+            <div className='grid grid-cols-2'>
+              <div className='flex flex-col p-2 space-y-4'>
+                <div className='mb-4'>
+                  <h1 className='text-5xl md:text-7xl lg:text-9xl font-extrabold'>
+                    Make remote work
+                  </h1>
+                </div>
+
+                <div className='mt-6 space-y-6 md:space-y-12 lg:space-y-18'>
+                  <p className='md:text-md'>
+                    Get your team in sync, no matter your location, Streamline
+                    processes, create team rituals, and watch productivity soar.
+                  </p>
+                  <button className='rounded-xl cursor-pointer border border-gray-500 text-black bg-white p-3'>
+                    Learn more
+                  </button>
+                </div>
+                {/* logo display */}
+                <div className='flex  mt-4 justify-start space-x-4 md:space-x-8 lg:space-x-12'>
+                  <div>
+                    <Image
+                      src='/images/client-databiz.svg'
+                      objectFit='contain'
+                      height={40}
+                      width={80}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src='/images/client-audiophile.svg'
+                      objectFit='contain'
+                      height={40}
+                      width={80}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src='/images/client-meet.svg'
+                      objectFit='contain'
+                      height={40}
+                      width={80}
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src='/images/client-maker.svg'
+                      objectFit='contain'
+                      height={40}
+                      width={80}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className=' flex justify-center  '>
+                <Image
+                  objectFit='contain'
+                  src='/images/image-hero-desktop.png'
+                  width={500}
+                  height={500}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -264,4 +381,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HomePage;
